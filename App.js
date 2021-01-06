@@ -6,109 +6,59 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
+import React, {useState} from 'react';
+import {ScrollView, View, Text, Switch} from 'react-native';
+import styled from 'styled-components/native';
+const App = () => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <Wrapper>
+      <Scroll>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+        <Title>Olá, meu primeiro react native app :)</Title>
+      </Scroll>
+      <Switch
+        trackColor={{false: '#767507', true: '#81b0ff'}}
+        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
+    </Wrapper>
   );
 };
+const Title = styled.Text`
+  font-size: 25px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: right;
+`;
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+const Scroll = styled.ScrollView`
+  padding: 5px;
+  background: #a0a0a0;
+`;
+
+const Wrapper = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #636363;
+`;
 
 export default App;
